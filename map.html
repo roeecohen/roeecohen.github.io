@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="he">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>My Map</title>
+    <style>
+        /* Set the size of the div element that contains the map */
+        #map {
+            height: 950px;  /* The height is the height of the web page */
+            width: 100%;  /* The height is the height of the web page */
+        }
+        img {
+            width: 100%;
+        }
+    </style>
+
+    <script src="cities.js"></script> <!--The cities database-->
+    <script src="googleMaps.js"></script> <!--the map-->
+</head>
+<body>
+
+<div class="container-fluid" >
+    <div class="row">
+        <!--The presented map -->
+        <div class="col-12 col-md-10 col-lg-10">
+            <!--The div element for the map -->
+            <div class="sticky-top">
+                <div id="map"></div>
+            </div>
+        </div>
+        <!--The presented menu -->
+        <div class="col-12 col-md-2 col-lg-2" style="text-align:right;"><br/>
+            <!--jerusalem -->
+            <div><img src="https://www.tiuli.com/image/ebf2006a9541e8846af10c6298d6e687.jpg?&width=1080" alt="jerusalem" >
+                <br/>
+                <h2>ירושלים</h2>
+                <h6>עיר הקודש</h6>
+                <p>עיר הבירה של מדינת ישראל והעיר עם האוכלוסייה הגדולה ביותר בה. נכון לשנת 2019, מתגוררים בה כ-927 אלף תושבים</p>
+                <button type="button" class="btn btn-success" data-index="0">בדוק במפה</button><br/><hr>
+            </div>
+            <!--tel aviv -->
+            <div><img src="http://k6s3v6r4.ssl.hwcdn.net/pictures/868/868170.jpg" alt="tel aviv" >
+                <br/>
+                <h2>תל אביב</h2>
+                <h6>עיר ללא גבולות</h6>
+                <p>תל אביב-יפו שוכנת לחוף הים התיכון על אדמת כורכר. בשטחה זורמים נחל הירקון ונחל איילון</p>
+                <button type="button" class="btn btn-success" data-index="1">בדוק במפה</button><br/><hr>
+            </div>
+            <!--haifa -->
+            <div><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoDZ9ImxGoHdMuBzKNRmkKlNfwH2LN7mUwqdEFouxH-rvDo1YV&s" alt="haifa" >
+                <br/>
+                <h2>חיפה</h2>
+                <h6>העיר הירוקה</h6>
+                <p>העיר השלישית בגודל אוכלוסייתה בישראל, ביתה של אוכלוסייה מעורבת יהודית-ערבית</p>
+                <button type="button" class="btn btn-success" data-index="2">בדוק במפה</button><br/><hr>
+            </div>
+            <!--eilat -->
+            <div><img src="http://img.mako.co.il/2019/01/10/shutterstock_1019549344_i.jpg" alt="eilat" >
+                <br/>
+                <h2>אילת</h2>
+                <h6>עיר החופש</h6>
+                <p>היא העיר הדרומית ביותר במדינת ישראל והיחידה בה לחופי הים האדום, והיא משמשת כעיר נמל ותיירות מרכזית</p>
+                <button type="button" class="btn btn-success" data-index="3">בדוק במפה</button><br/><hr>
+            </div>
+            <!--herzelia -->
+            <div><img src="https://images.globes.co.il/images/NewGlobes/big_image_800/2018/mari800x392.2018116T143548.jpg" alt="herzelia" >
+                <br/>
+                <h2>הרצליה</h2>
+                <h6>עיר חוף</h6>
+                <p>נקראת על שם בנימין זאב הרצל, חוזה מדינת ישראל. העיר משתרעת מחוף הים מזרחה, גובלת ברמת השרון וברעננה ומכילה פני שטח מגוונים</p>
+                <button type="button" class="btn btn-success" data-index="4">בדוק במפה</button><br/><br/>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Load the API from the specified URL
+* The async attribute allows the browser to render the page while the API loads
+* The key parameter will contain your own API key (which is not needed for this tutorial)
+* The callback parameter executes the initMap() function
+-->
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBai-4VIrA_macXmCPdEHF9vDQOc2tZYzs&callback=initMap">
+</script>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
